@@ -33,7 +33,7 @@ fun getFortuneCookie(): String {
 
     val birthday = readLine()?.toIntOrNull() ?: 1
 
-    val fortuneIndex = birthday / message.size
+    val fortuneIndex = birthday.rem(message.size)
 
     return if (fortuneIndex > message.size)message[0] else message[fortuneIndex]
 
