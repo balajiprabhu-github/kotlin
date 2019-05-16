@@ -4,20 +4,21 @@ import java.util.*
 
 fun main(args: Array<String>) {
     println("Hello ${args[0]}!")
-//    println("Your fortune is:"+ getFortuneCookie())
 
+
+    //    println("Your fortune is:"+ getFortuneCookie())
     // Run until your fortune is Take it easy
 
     for ( i in 1..10){
-        val message = getFortuneCookie()
+        val message = getFortuneCookie(getBirthDay())
         println("$i $message")
-        if(message.contains("Be humble "))
+        if(message.contains("Take it easy"))
             break
     }
 }
 
 
-fun getFortuneCookie(): String {
+fun getFortuneCookie(birthday : Int): String {
 
     val message = listOf(
         "You will have a great day!",
@@ -29,16 +30,24 @@ fun getFortuneCookie(): String {
         "Treasure your friends because they are your greatest fortune."
     )
 
-    println("Enter your Birthday")
 
-    val birthday = readLine()?.toIntOrNull() ?: 1
-
-    val fortuneIndex = birthday.rem(message.size)
+    val fortuneIndex = when(birthday){
+        in 1..7 -> 2
+        28,31 -> 4
+        else -> birthday.rem(message.size)
+    }
 
     return if (fortuneIndex > message.size)message[0] else message[fortuneIndex]
 
 }
 
+
+fun getBirthDay() : Int {
+
+    println("Enter your Birthday")
+    return readLine()?.toIntOrNull() ?: 1
+
+}
 
 fun feedTheFish() {
     val day = randomDay()
