@@ -3,18 +3,29 @@ package practice
 import java.util.*
 
 fun main(args: Array<String>) {
+
+    // pass your name in command line argument
     println("Hello ${args[0]}!")
 
-
-    //    println("Your fortune is:"+ getFortuneCookie())
+    // println("Your fortune is:"+ getFortuneCookie())
     // Run until your fortune is Take it easy
 
-    for ( i in 1..10){
-        val message = getFortuneCookie(getBirthDay())
-        println("$i $message")
-        if(message.contains("Take it easy"))
-            break
-    }
+//    for ( i in 1..10){
+//        val message = getFortuneCookie(getBirthDay())
+//        println("$i $message")
+//        if(message.contains("Take it easy"))
+//            break
+//    }
+
+    println(canAddFish(8.0, listOf(2,2,2), hasDecorations = false))
+
+}
+
+
+
+
+fun canAddFish(tankSize: Double, currentFish: List<Int>, fishSize: Int = 2, hasDecorations: Boolean = true): Boolean {
+    return (tankSize * if (hasDecorations) 0.8 else 1.0) >= (currentFish.sum() + fishSize)
 }
 
 
