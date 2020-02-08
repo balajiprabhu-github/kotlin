@@ -1,6 +1,6 @@
 package cousera
 
 fun main(args: Array<String>) {
-    val argument = if (args.isNotEmpty()) args[0] else "Kotlin"
+    val argument = print("Balaji")
     println("Hello $argument")
 }
