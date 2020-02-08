@@ -1,11 +1,15 @@
 package cousera
 
 fun main() {
+    fun defaultArguments(char: Char = '*', size: Int = 5) {
+        repeat(size) {
+            print(char)
+        }
+        println()
+    }
 
-    val languages = mutableListOf("Java")
-    languages.add("Kotlin") // No error
-
-    val cars = listOf("Mustang")
-    cars.add("Shelby") // Method not found error
-
+    defaultArguments('#', 5)
+    defaultArguments('#')
+    defaultArguments(size = 10)
+    defaultArguments()
 }
