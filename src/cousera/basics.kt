@@ -1,15 +1,18 @@
 package cousera
 
+
+enum class Color {
+    BLUE, ORANGE, RED
+}
+
 fun main() {
-    fun defaultArguments(char: Char = '*', size: Int = 5) {
-        repeat(size) {
-            print(char)
-        }
-        println()
+
+    fun getColor(color: Color): String = when (color) {
+        Color.BLUE -> "Blue"
+        Color.RED -> "Red"
+        Color.ORANGE -> "Orange"
     }
 
-    defaultArguments('#', 5)
-    defaultArguments('#')
-    defaultArguments(size = 10)
-    defaultArguments()
+    print(getColor(Color.ORANGE))
+
 }
